@@ -4,6 +4,7 @@ gem 'net-ldap', '~> 0.16'
 
 group :development, :test do
 	gem 'rspec', '~> 3.6'
+	gem 'rake', '~> 12'
 end
 
 group :test do
