@@ -3,3 +3,6 @@
 
 # Ignore the bundle cache.
 Gemfile.lock
+
+# Ignore coverage data
+/coverage
