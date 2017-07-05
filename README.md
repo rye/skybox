@@ -1,4 +1,4 @@
-# skylark [![Gem Version](https://badge.fury.io/rb/skylark.svg)](https://badge.fury.io/rb/skylark) [![Build Status](https://travis-ci.org/rye/skylark.svg?branch=master)](https://travis-ci.org/rye/skylark)
+# skylark [![Gem Version](https://badge.fury.io/rb/skylark.svg)](https://badge.fury.io/rb/skylark) [![Build Status](https://travis-ci.org/rye/skylark.svg?branch=master)](https://travis-ci.org/rye/skylark) [![Code Climate](https://codeclimate.com/github/rye/skylark/badges/gpa.svg)](https://codeclimate.com/github/rye/skylark) [![Test Coverage](https://codeclimate.com/github/rye/skylark/badges/coverage.svg)](https://codeclimate.com/github/rye/skylark/coverage)
 
 Skylark is a simple CLI-based LDAP scraper whose intended purpose is to
 dump an entire LDAP search base out into a bunch of JSON files based
