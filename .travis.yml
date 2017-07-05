@@ -25,6 +25,7 @@ jobs:
       rvm: 2.4.1
       sudo: false
       install:
+        - bundle install
         - bundle exec rake bootstrap
       script:
         - skip
