@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+LIB_DIRECTORY = File.join(File.dirname(__FILE__), '..', 'lib')
+$LOAD_PATH.unshift(File.expand_path(LIB_DIRECTORY)) unless $LOAD_PATH.map do |directory|
+	File.expand_path(directory)
+end.include?(LIB_DIRECTORY)
+
+require 'skybox'
+
+Skybox::CLI.run ARGV
