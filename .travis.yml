@@ -27,8 +27,7 @@ jobs:
       install:
         - bundle install
         - bundle exec rake bootstrap
-      script:
-        - skip
+      script: skip
       deploy:
         provider: rubygems
         gem: skylark
