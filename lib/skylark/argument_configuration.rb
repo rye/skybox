@@ -1,8 +1,8 @@
 require 'optparse'
 
-require 'skybox/configuration'
+require 'skylark/configuration'
 
-module Skybox
+module Skylark
 
 	class ArgumentConfiguration < Configuration
 		def self.parse(argv)

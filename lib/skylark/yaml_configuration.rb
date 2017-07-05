@@ -1,8 +1,8 @@
 require 'yaml'
 
-require 'skybox/configuration'
+require 'skylark/configuration'
 
-module Skybox
+module Skylark
 
 	class YAMLConfiguration < Configuration
 

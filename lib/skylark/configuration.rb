@@ -1,4 +1,4 @@
-module Skybox
+module Skylark
 
 	Configuration = Class.new(Hash)
 

@@ -2,12 +2,12 @@ require 'fileutils'
 require 'base64'
 require 'json'
 
-require 'skybox/ldap'
-require 'skybox/argument_configuration'
-require 'skybox/yaml_configuration'
-require 'skybox/version'
+require 'skylark/ldap'
+require 'skylark/argument_configuration'
+require 'skylark/yaml_configuration'
+require 'skylark/version'
 
-module Skybox
+module Skylark
 
 	module CLI
 
@@ -26,7 +26,7 @@ module Skybox
 						auth = {method: :simple, username: spec_configuration['server']['auth']['username'], password: spec_configuration['server']['auth']['password']}
 						encryption = {method: :simple_tls, tls_options: {verify_mode: OpenSSL::SSL::VERIFY_NONE}}
 
-						adapter = Skybox::LDAP::Adapter.new(host: spec_configuration['server']['host'], port: spec_configuration['server']['port'].to_i, auth: auth, encryption: encryption)
+						adapter = Skylark::LDAP::Adapter.new(host: spec_configuration['server']['host'], port: spec_configuration['server']['port'].to_i, auth: auth, encryption: encryption)
 
 						adapter.search(base: search['base']) do |entry|
 							hash = {}
@@ -47,7 +47,7 @@ module Skybox
 								end
 							end
 
-							names = Skybox::LDAP::DN.new(hash[:dn]).names
+							names = Skylark::LDAP::DN.new(hash[:dn]).names
 							domain_name_components = names.reverse.select do |name|
 								in_domain_name ||= true && (in_domain_name = name.keys[0].match?(/dc/i))
 							end.reverse.to_a

@@ -1,6 +1,6 @@
 require 'net/ldap'
 
-module Skybox::LDAP
+module Skylark::LDAP
 
 	Adapter = Class.new(Net::LDAP)
 

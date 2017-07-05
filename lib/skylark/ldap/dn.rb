@@ -1,4 +1,4 @@
-module Skybox::LDAP
+module Skylark::LDAP
 
 	class DN
 		attr_reader :names
