@@ -1,0 +1,6 @@
+# All YAML configuration files
+*.yml
+*.yaml
+
+!*.yml.sample
+!*.yaml.sample

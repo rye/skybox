@@ -1,0 +1,5 @@
+# Ignore built gems
+*.gem
+
+# Ignore the bundle cache.
+Gemfile.lock

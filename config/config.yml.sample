@@ -1,0 +1,12 @@
+---
+server:
+  host: '<hostname>'
+  port: <port>
+
+  auth:
+    method: simple
+    username: <user>
+    password: <password>
+
+searches:
+  - base: <search base>
