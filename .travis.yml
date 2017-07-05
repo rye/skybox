@@ -9,7 +9,6 @@ jobs:
       rvm: ruby-head
       sudo: false
       install:
-        - bundle install
         - bundle exec rake bootstrap
       script:
         - bundle exec rake spec
