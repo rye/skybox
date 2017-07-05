@@ -1,0 +1,22 @@
+---
+sudo: false
+language: ruby
+
+jobs:
+  include:
+    - &test_base
+      stage: test
+      rvm: ruby-head
+      sudo: false
+      install:
+        - bundle install
+        - bundle exec rake bootstrap
+      script:
+        - bundle exec rake spec
+        - bundle exec codeclimate-test-reporter
+    - <<: *test_base
+      rvm: 2.4.1
+    - <<: *test_base
+      rvm: 2.4.0
+    - <<: *test_base
+      rvm: 2.3.3
