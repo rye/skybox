@@ -20,3 +20,17 @@ jobs:
       rvm: 2.4.0
     - <<: *test_base
       rvm: 2.3.3
+
+    - stage: deploy
+      rvm: 2.4.1
+      sudo: false
+      install:
+        - bundle exec rake bootstrap
+      script:
+        - skip
+      deploy:
+        provider: rubygems
+        gem: skylark
+        api_key: $RUBYGEMS_API_KEY
+        on:
+          tags: true
