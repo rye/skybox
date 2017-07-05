@@ -16,5 +16,7 @@ Gem::Specification.new do |s|
 	s.summary = 'A CLI-based LDAP scraper whose intended purpose is to dump an entire LDAP search into a bunch of JSON files.'
 	s.authors = ['Kristofer Rye']
 	s.licenses = ['MIT']
+	s.platform Gem::Platform::RUBY
+	s.required_ruby_version ['>= 2.3.3', '<= 2.4.1']
 
 end
