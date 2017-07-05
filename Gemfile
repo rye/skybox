@@ -7,6 +7,8 @@ group :development, :test do
 end
 
 group :test do
+	gem 'codeclimate', '~> 0.65'
+	gem 'codeclimate-test-reporter', '~> 1.0'
 end
 
 group :development do
