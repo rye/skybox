@@ -7,7 +7,7 @@ require 'skylark/version'
 
 Gem::Specification.new do |s|
 
-	$stderr.puts "Building #{s.name} version #{s.version}"
+	$stderr.puts "Building #{s.name} #{s.version}"
 
 	s.name = %q[skylark]
 	s.email = 'kristofer.rye+skylark@gmail.com'
