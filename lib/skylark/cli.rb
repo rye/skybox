@@ -60,7 +60,8 @@ module Skylark
 							filename = File.join(dump_directory, "#{entry[:cn].first || ('_OU=' + entry[:ou].first if !entry[:ou].empty?) || ('_' + entry[:dn].first if !entry[:dn].empty?)}.json")
 
 							open(filename, 'wb') do |io|
-								io.write JSON.pretty_generate(hash) + '\n'
+								io.write JSON.pretty_generate(hash)
+								io.write '\n'
 							end
 						end
 					end
