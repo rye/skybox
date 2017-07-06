@@ -21,7 +21,7 @@ module Skylark
 
 				if spec_configuration['searches'].is_a? Array
 					spec_configuration['searches'].each do |search|
-						dump_root_directory = File.join(ROOT_DIRECTORY, 'data', spec_configuration['server']['host'])
+						dump_root_directory = File.join(File.dirname(spec_file), search['dump_directory'])
 
 						auth = {method: :simple, username: spec_configuration['server']['auth']['username'], password: spec_configuration['server']['auth']['password']}
 						encryption = {method: :simple_tls, tls_options: {verify_mode: OpenSSL::SSL::VERIFY_NONE}}
@@ -60,7 +60,8 @@ module Skylark
 							filename = File.join(dump_directory, "#{entry[:cn].first || ('_OU=' + entry[:ou].first if !entry[:ou].empty?) || ('_' + entry[:dn].first if !entry[:dn].empty?)}.json")
 
 							open(filename, 'wb') do |io|
-								io.write JSON.pretty_generate(hash) + '\n'
+								io.write JSON.pretty_generate(hash)
+								io.write '\n'
 							end
 						end
 					end
