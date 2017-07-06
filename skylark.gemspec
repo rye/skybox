@@ -29,6 +29,8 @@ Gem::Specification.new do |s|
 	s.files << 'LICENSE.md'
 	s.files << 'README.md'
 
+	s.executables = ['skylark']
+
 	s.licenses = ['MIT']
 
 	s.platform = Gem::Platform::RUBY
