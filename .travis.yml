@@ -3,7 +3,7 @@ sudo: false
 language: ruby
 cache:
   directories:
-    - /home/travis/.rvm
+    - /home/travis/.rvm/gems
 
 jobs:
   include:
