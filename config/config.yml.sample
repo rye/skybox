@@ -10,3 +10,4 @@ server:
 
 searches:
   - base: <search base>
+    dump_directory: './<hostname>/'

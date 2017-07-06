@@ -21,7 +21,7 @@ module Skylark
 
 				if spec_configuration['searches'].is_a? Array
 					spec_configuration['searches'].each do |search|
-						dump_root_directory = File.join(ROOT_DIRECTORY, 'data', spec_configuration['server']['host'])
+						dump_root_directory = File.join(File.dirname(spec_file), search['dump_directory'])
 
 						auth = {method: :simple, username: spec_configuration['server']['auth']['username'], password: spec_configuration['server']['auth']['password']}
 						encryption = {method: :simple_tls, tls_options: {verify_mode: OpenSSL::SSL::VERIFY_NONE}}
