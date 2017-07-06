@@ -1,6 +1,9 @@
 ---
 sudo: false
 language: ruby
+cache:
+  directories:
+    - /home/travis/.rvm
 
 jobs:
   include:
