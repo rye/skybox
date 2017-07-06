@@ -21,6 +21,6 @@ module Skylark
 		end
 	end
 
-	VERSION = Version.new(0, 0, 0, 'alpha.1')
+	VERSION = Version.new(0, 0, 0)
 
 end
