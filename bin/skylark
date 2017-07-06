@@ -5,6 +5,6 @@ $LOAD_PATH.unshift(File.expand_path(LIB_DIRECTORY)) unless $LOAD_PATH.map do |di
 	File.expand_path(directory)
 end.include?(LIB_DIRECTORY)
 
-require 'skybox'
+require 'skylark'
 
-Skybox::CLI.run ARGV
+Skylark::CLI.run ARGV
