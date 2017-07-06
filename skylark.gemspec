@@ -12,11 +12,25 @@ Gem::Specification.new do |s|
 
 	$stderr.puts "Building #{s.name} #{s.version}..."
 
+	s.authors = ['Kristofer Rye']
 	s.email = 'kristofer.rye+skylark@gmail.com'
 	s.homepage = 'https://github.com/rye/skylark' # TODO gh-pages
+
 	s.summary = 'A CLI-based LDAP scraper whose intended purpose is to dump an entire LDAP search into a bunch of JSON files.'
-	s.authors = ['Kristofer Rye']
+
+	s.files = []
+	s.files << '.gitignore'
+	s.files << '.rspec'
+	s.files << 'bin/skylark'
+	s.files << Dir.glob('lib/**/*.rb')
+	s.files << Dir.glob('spec/**/*.rb')
+	s.files << 'skylark.gemspec'
+	s.files << 'CONTRIBUTING.md'
+	s.files << 'LICENSE.md'
+	s.files << 'README.md'
+
 	s.licenses = ['MIT']
+
 	s.platform = Gem::Platform::RUBY
 	s.required_ruby_version = ['>= 2.3.3', '<= 2.5']
 
