@@ -61,7 +61,7 @@ module Skylark
 
 							open(filename, 'wb') do |io|
 								io.write JSON.pretty_generate(hash)
-								io.write '\n'
+								io.write "\n"
 							end
 						end
 					end
