@@ -25,6 +25,7 @@ jobs:
       rvm: 2.3.3
 
     - stage: deploy
+      if: tag IS present
       rvm: 2.4.1
       sudo: false
       install:
