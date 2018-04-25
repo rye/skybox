@@ -19,14 +19,30 @@ module Skylark
 				spec_configuration.read!
 				spec_configuration
 
+				spec_server = spec_configuration['server']
+
 				if spec_configuration['searches'].is_a? Array
 					spec_configuration['searches'].each do |search|
-						dump_root_directory = File.join(File.dirname(spec_file), search['dump_directory'])
+						dump_root_directory = File.join(File.dirname(spec_file),
+						                                search['dump_directory'])
 
-						auth = {method: :simple, username: spec_configuration['server']['auth']['username'], password: spec_configuration['server']['auth']['password']}
-						encryption = {method: :simple_tls, tls_options: {verify_mode: OpenSSL::SSL::VERIFY_NONE}}
+						auth = {
+							method: :simple,
+							username: spec_server['auth']['username'],
+							password: spec_server['auth']['password']
+						}
 
-						adapter = Skylark::LDAP::Adapter.new(host: spec_configuration['server']['host'], port: spec_configuration['server']['port'].to_i, auth: auth, encryption: encryption)
+						encryption = {
+							method: :simple_tls,
+							tls_options: {
+								verify_mode: OpenSSL::SSL::VERIFY_NONE
+							}
+						}
+
+						adapter = Skylark::LDAP::Adapter.new(host: spec_server['host'],
+						                                     port: spec_server['port'].to_i,
+						                                     auth: auth,
+						                                     encryption: encryption)
 
 						adapter.search(base: search['base']) do |entry|
 							hash = {}
@@ -49,15 +65,27 @@ module Skylark
 
 							names = Skylark::LDAP::DN.new(hash[:dn]).names
 							domain_name_components = names.reverse.select do |name|
-								in_domain_name ||= true && (in_domain_name = name.keys[0].match?(/dc/i))
+								in_domain_name ||= true &&
+									(in_domain_name = name.keys[0].match?(/dc/i))
 							end.reverse.to_a
 
 							search_subnames = (names - domain_name_components).reverse
-							dump_directory = File.join(dump_root_directory, *search_subnames.select{|name| name.keys.first != 'CN'}.map{|name| name.values.first})
+
+							path_parts = search_subnames.select do |name|
+								name.keys.first != 'CN'
+							end.map do |name|
+								name.values.first
+							end
+
+							dump_directory = File.join(dump_root_directory, *path_parts)
 
 							FileUtils.mkdir_p(dump_directory)
 
-							filename = File.join(dump_directory, "#{entry[:cn].first || ('_OU=' + entry[:ou].first if !entry[:ou].empty?) || ('_' + entry[:dn].first if !entry[:dn].empty?)}.json")
+							filename = entry[:cn].first ||
+								('_OU=' + entry[:ou].first if !entry[:ou].empty?) ||
+								('_' + entry[:dn].first if !entry[:dn].empty?) || 'unknown'
+
+							filename = File.join(dump_directory, "#{filename}.json")
 
 							open(filename, 'wb') do |io|
 								io.write JSON.pretty_generate(hash)
