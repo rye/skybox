@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
 	s.licenses = ['MIT']
 
 	s.platform = Gem::Platform::RUBY
-	s.required_ruby_version = ['>= 2.3.3', '<= 2.5']
+	s.required_ruby_version = ['>= 2.3.3', '< 3']
 
 	s.add_dependency 'net-ldap', '~> 0.16'
 
